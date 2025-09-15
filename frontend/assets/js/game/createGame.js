@@ -1,5 +1,3 @@
-let userLoggedIn = true;
-
 document.addEventListener("DOMContentLoaded", () => {
   // Verificamos si ya hay una partida activa
   const partidaActiva = JSON.parse(localStorage.getItem("partidaActual"));
@@ -8,12 +6,26 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "pages/game.html";
   }
 
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  if (usuario) {
+    document.querySelector(".profile_name").textContent =
+      usuario.nombre_usuario;
+    document.querySelector(".profile_info h3").textContent = "Conectado";
+  }
+
+  let userLoggedIn = usuario !== null;
+
   const playBtn = document.getElementById("playBtn");
   const playWindow = document.getElementById("playWindow");
   const gameForm = document.getElementById("gameForm");
 
   // Abrir el diálogo al hacer click en Jugar
   playBtn.addEventListener("click", () => {
+    if (!userLoggedIn) {
+      toggleWindow("loginWindow"); // abrís tu modal de login
+      return;
+    }
     playWindow.showModal();
   });
 
@@ -27,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const cantJugadores = parseInt(
-      document.getElementById("cantJugadores").value
+      document.getElementById("cantJugadores").value,
     );
 
     const partida = {

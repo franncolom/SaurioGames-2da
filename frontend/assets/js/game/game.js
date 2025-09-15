@@ -3,42 +3,44 @@ let partida = JSON.parse(localStorage.getItem("partidaActual"));
 if (partida && partida.estado === "iniciada") {
   window.addEventListener("beforeunload", (e) => {
     e.preventDefault();
-    e.returnValue = "Si recargas o cerras la página, se perderán los datos de la partida.";
+    e.returnValue =
+      "Si recargas o cerras la página, se perderán los datos de la partida.";
   });
 }
 
 const elts = {
   text1: document.getElementById("text1"),
   text2: document.getElementById("text2"),
-  container: document.getElementById("container")
+  container: document.getElementById("container"),
 };
 const dadoContainer = document.querySelector(".dado_container");
 const rollBtn = document.querySelector(".roll");
 const dice = document.querySelector(".dado");
 const mapa = document.querySelector(".mapa_container");
 const exitBtn = document.getElementById("exitGame");
+const usuario = JSON.parse(localStorage.getItem("usuario"));
 
 document.addEventListener("DOMContentLoaded", () => {
   const exitBtn = document.getElementById("exitGame");
 
   if (exitBtn) {
     exitBtn.addEventListener("click", () => {
-      console.log("Botón salir clickeado"); // <-- prueba en consola
       localStorage.clear();
-      window.location.href = "../index.html"; 
+      window.location.href = "../index.html";
     });
   } else {
     console.error("No encontré el botón #exitGame");
   }
 });
 
+const profileName =  usuario.nombre_usuario;
 
 const texts = [
   "Preparando tablero...",
   "¡Iniciando partida!",
-  "Jugador 1",
+  profileName,
   "prepárate…",
-  "¡TIRA EL DADO!"
+  "¡TIRA EL DADO!",
 ];
 
 const morphTime = 1;
@@ -49,7 +51,6 @@ elts.text1.style.opacity = "1";
 elts.text2.style.opacity = "0";
 elts.text1.textContent = texts[textIndex];
 elts.text2.textContent = texts[textIndex + 1] || "";
-
 
 function mostrarMapa() {
   // Ocultar textos
@@ -113,18 +114,30 @@ function showNextText() {
 showNextText();
 
 const rollDice = (random) => {
-  dice.style.animation = 'rolling 1s';
+  dice.style.animation = "rolling 1s";
 
   setTimeout(() => {
     switch (random) {
-      case 1: dice.style.transform = 'rotateX(0deg) rotateY(0deg)'; break;
-      case 2: dice.style.transform = 'rotateX(-90deg) rotateY(0deg)'; break;
-      case 3: dice.style.transform = 'rotateX(0deg) rotateY(90deg)'; break;
-      case 4: dice.style.transform = 'rotateX(0deg) rotateY(-90deg)'; break;
-      case 5: dice.style.transform = 'rotateX(90deg) rotateY(0deg)'; break;
-      case 6: dice.style.transform = 'rotateX(180deg) rotateY(0deg)'; break;
+      case 1:
+        dice.style.transform = "rotateX(0deg) rotateY(0deg)";
+        break;
+      case 2:
+        dice.style.transform = "rotateX(-90deg) rotateY(0deg)";
+        break;
+      case 3:
+        dice.style.transform = "rotateX(0deg) rotateY(90deg)";
+        break;
+      case 4:
+        dice.style.transform = "rotateX(0deg) rotateY(-90deg)";
+        break;
+      case 5:
+        dice.style.transform = "rotateX(90deg) rotateY(0deg)";
+        break;
+      case 6:
+        dice.style.transform = "rotateX(180deg) rotateY(0deg)";
+        break;
     }
-    dice.style.animation = 'none';
+    dice.style.animation = "none";
 
     // Guardar resultado en partida
     partida.ultimoDado = random;
@@ -134,7 +147,7 @@ const rollDice = (random) => {
     rollBtn.disabled = true;
 
     // Aquí podes llamar función para mostrar el mapa
-    mostrarMapa(); 
+    mostrarMapa();
   }, 1000);
 };
 
@@ -144,7 +157,7 @@ const randomDice = () => {
 };
 
 let tiroRealizado = false;
-rollBtn.addEventListener('click', () => {
+rollBtn.addEventListener("click", () => {
   if (!tiroRealizado) {
     randomDice();
     tiroRealizado = true;

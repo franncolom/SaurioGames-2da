@@ -31,7 +31,7 @@ dialog#playWindow {
   top: 100%;
   left: 50%;
   transform: translate(-50%, -100%);
-  
+
   padding: 28px 20px;
   border-top-left-radius: 22px;
   border-top-right-radius: 22px;
@@ -53,7 +53,7 @@ dialog#playWindow form {
 
 dialog#playWindow form h3 {
   grid-area: form;
-  color: #F2F2F2;
+  color: #f2f2f2;
   padding-bottom: 22px;
 }
 
@@ -65,7 +65,6 @@ dialog#playWindow select#cantJugadores {
   font-size: 22px;
   width: 100%;
   padding: 20px 16px;
-
 }
 
 dialog#playWindow select#cantJugadores option {
@@ -74,7 +73,7 @@ dialog#playWindow select#cantJugadores option {
 }
 
 dialog#playWindow form button {
-  grid-area: button; 
+  grid-area: button;
 }
 
 dialog#loginWindow {
@@ -85,4 +84,74 @@ dialog#loginWindow {
 
   padding: 28px 20px;
   border-radius: 22px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border: none;
+}
+
+dialog#loginWindow form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "title title"
+    "user pass";
+  gap: 20px;
+}
+
+dialog#loginWindow form h2 {
+  grid-area: title;
+  color: #F2F2F2;
+}
+
+dialog#loginWindow form #username {
+  border: 2px solid #222222;
+  background: rgba(170, 170, 170, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  padding: 12px 8px;
+  grid-area: user;
+}
+dialog#loginWindow form #password {
+  border: 2px solid #222222;
+  background: rgba(170, 170, 170, 0.1);
+  border-radius: 12px;
+  padding: 12px 8px;
+  color: #fff;
+  grid-area: pass;
+}
+
+
+input::placeholder {
+  text-transform: uppercase;
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+  dialog#playWindow {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  dialog#playWindow[open] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  dialog#playWindow form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "form"
+      "select"
+      "button";
+    gap: 16px;
+  }
+
+  dialog#playWindow select#cantJugadores {
+    font-size: 18px;
+    padding: 14px 12px;
+  }
 }

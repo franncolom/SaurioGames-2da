@@ -14,8 +14,12 @@
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 #container {
@@ -33,7 +37,7 @@
   width: 100%;
   display: inline-block;
   font-family: "Raleway", sans-serif;
-  font-size: 70pt;
+  font-size: 70px;
   text-align: center;
   user-select: none;
 }
@@ -58,7 +62,7 @@
 }
 
 .roll {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 @keyframes rolling {
@@ -143,7 +147,11 @@
 .back::after {
   background: #000; /* negro */
   margin: -35px 0 0 -30px;
-  box-shadow: 40px 0 #000, 0 25px #000, 40px 25px #000, 0 50px #000,
+  box-shadow:
+    40px 0 #000,
+    0 25px #000,
+    40px 25px #000,
+    0 50px #000,
     40px 50px #000;
 }
 
@@ -156,27 +164,44 @@
 .bottom::after {
   background: #000; /* negro */
   margin: -36px 0 0 -36px;
-  box-shadow: 26px 26px #000, 52px 52px #000, 52px 0 #000, 0 52px #000;
+  box-shadow:
+    26px 26px #000,
+    52px 52px #000,
+    52px 0 #000,
+    0 52px #000;
 }
 
 .right::after {
   background: #000; /* negro */
   margin: -30px 0 0 -30px;
-  box-shadow: 40px 0 #000, 0 40px #000, 40px 40px #000;
+  box-shadow:
+    40px 0 #000,
+    0 40px #000,
+    40px 40px #000;
 }
 
 .left::after {
   background: #000; /* negro */
   margin: -35px 0 0 -35px;
-  box-shadow: 25px 25px #000, 50px 50px #000;
+  box-shadow:
+    25px 25px #000,
+    50px 50px #000;
 }
 
 .mapa_container {
-    display: none;
+  display: none;
 }
 
 .exit_button {
   z-index: 10;
   padding: 4px 8px;
   margin: 8px 6px;
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+  #text1,
+  #text2 {
+    padding-top: 200px;
+    font-size: 45px;
+  }
 }
