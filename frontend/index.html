@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draftosaurus Simulador</title>
+
+    <link rel="stylesheet" href="./assets/css/global.css" />
+  </head>
+  <body>
+    <div class="container lobby_banner">
+      <div class="overlay"></div>
+      <header class="hud_lobby">
+        <div class="profile_bar">
+          <div class="profile_avatar">
+            <img
+              src="./assets/img/avatar.webp"
+              alt="Foto de perfil del usuario"
+            />
+          </div>
+          <div class="profile_info">
+            <h2>Frann07</h2>
+            <h3>Conectado</h3>
+          </div>
+
+          <div class="profile_stats">
+            <ul>
+              <li class="stats">
+                <img
+                  src="./assets/img/icons/victoryIcon.webp"
+                  alt="Partidas ganadas"
+                />
+                <h4>11</h4>
+              </li>
+              <li class="stats">
+                <img
+                  src="./assets/img/icons/gamesIcon.webp"
+                  alt="Partidas jugadas"
+                />
+                <h4>16</h4>
+              </li>
+              <li class="stats">
+                <img
+                  src="./assets/img/icons/coinIcon.webp"
+                  alt="Puntos obtenidos"
+                />
+                <h4>46</h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile_nav">
+          <nav>
+            <ul>
+              <li>
+                <button class="hud_button">
+                  <img
+                    src="./assets/img/icons/rulesIcon.webp"
+                    alt="Leer reglas"
+                  />
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <div class="lobby_header">
+          <div class="header">
+            <img
+              src="./assets/img/logo.webp"
+              alt="Logo de Draftosaurus"
+              width="400"
+              height=""
+            />
+            <div class="player">
+              <img
+                src="./assets/img/avatar.webp"
+                alt="Foto de perfil del usuario"
+              />
+
+              <div>
+                <h3>Frann07</h3>
+                <p>Listo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="lobby_content">
+          <div class="cta">
+            <button id="playBtn" class="wooden-button">
+              Jugar
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+    
+    <!-- Ventanas flotantes (js/windows) -->
+    <dialog id="playWindow">
+      <form method="dialog" id="gameForm">
+        <h3>Selecciona la cantidad de jugadores</h3>
+        <select name="cantJugadores" required id="cantJugadores">
+          <option value="2">2 Jugadores</option>
+          <option value="3">3 Jugadores</option>
+          <option value="4">4 Jugadores</option>
+          <option value="5">5 Jugadores</option>
+        </select>
+
+        <button type="submit" id="createGame" class="wooden-button">
+          Crear partida
+        </button>
+      </form>
+    </dialog>
+
+    <dialog id="loginWindow">
+      <form action="">
+        <label for="">Usuario</label>
+        <input type="text" >
+      </form>
+    </dialog>
+
+    <script src="./assets/js/game/createGame.js"></script>
+    <script src="./assets/js/windows/toggleWindow.js"></script>
+  </body>
+</html>

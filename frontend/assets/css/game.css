@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:800&display=swap");
+
+.game_container {
+  height: 100dvh;
+
+  background: url("../img/gameBanner.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fade-out {
+  animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+#container {
+  position: absolute;
+  margin: auto;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  filter: url(#threshold) blur(0.6px);
+}
+#text1,
+#text2 {
+  position: absolute;
+  padding-top: 50px;
+  width: 100%;
+  display: inline-block;
+  font-family: "Raleway", sans-serif;
+  font-size: 70pt;
+  text-align: center;
+  user-select: none;
+}
+
+/* DADO */
+.dado_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  gap: 20px;
+}
+
+.dado {
+  position: relative;
+  width: 100px;
+  scale: 2;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: 1s ease;
+}
+
+.roll {
+    margin-top: 50px;
+}
+
+@keyframes rolling {
+  50% {
+    transform: rotateX(455deg) rotateY(455deg);
+  }
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 5px solid #f6f3f0;
+  transform-style: preserve-3d;
+  background: linear-gradient(145deg, #dddbd8, #fff);
+}
+
+.face::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: #000000;
+  transform: translateZ(-1px);
+}
+
+.face::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #131210;
+}
+
+.front {
+  transform: translateZ(50px);
+}
+
+.back {
+  transform: rotateX(180deg) translateZ(50px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+.face::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #000; /* negro */
+}
+
+/* Ajustes por cara */
+.front::after {
+  width: 30px;
+  height: 30px;
+  background: #000; /* negro */
+  margin: -15px 0 0 -15px;
+}
+
+.back::after {
+  background: #000; /* negro */
+  margin: -35px 0 0 -30px;
+  box-shadow: 40px 0 #000, 0 25px #000, 40px 25px #000, 0 50px #000,
+    40px 50px #000;
+}
+
+.top::after {
+  background: #000; /* negro */
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 40px #000;
+}
+
+.bottom::after {
+  background: #000; /* negro */
+  margin: -36px 0 0 -36px;
+  box-shadow: 26px 26px #000, 52px 52px #000, 52px 0 #000, 0 52px #000;
+}
+
+.right::after {
+  background: #000; /* negro */
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 0 #000, 0 40px #000, 40px 40px #000;
+}
+
+.left::after {
+  background: #000; /* negro */
+  margin: -35px 0 0 -35px;
+  box-shadow: 25px 25px #000, 50px 50px #000;
+}
+
+.mapa_container {
+    display: none;
+}
+
+.exit_button {
+  z-index: 10;
+  padding: 4px 8px;
+  margin: 8px 6px;
+}

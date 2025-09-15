@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partida | Draftosaurus</title>
+
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/game.css" />
+  </head>
+  <body>
+    <div class="game_container">
+  
+      <header>
+        
+        <div id="container">
+          <span id="text1"></span>
+          <span id="text2"></span>
+        </div>
+        <svg id="filters">
+          <defs>
+            <filter id="threshold">
+              <feColorMatrix
+                in="SourceGraphic"
+                type="matrix"
+                values="1 0 0 0 0
+                        0 1 0 0 0
+                        0 0 1 0 0
+                        0 0 0 255 -140"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </header>
+      <main>
+        <div class="dado_container" style="display:none;">
+          <div class="dado">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+          </div>
+
+          <button class="roll wooden-button small">TIRAR DADO</button>
+        </div>
+
+        <div class="mapa_container">
+          <button id="exitGame" class="exit_button">Salir de la partida</button>
+          <!-- Aca va el mapa, el hud para la partida -->
+          hola mundo
+         
+        </div>
+      </main>
+    </div>
+
+    <script src="../assets/js/game/game.js"></script>
+  </body>
+</html>
